@@ -12,9 +12,10 @@ import { toast } from "sonner";
 
 interface LoginFormProps {
   onLogin: (role: UserRole, name: string) => void;
+  onShowRegister?: () => void;
 }
 
-export const LoginForm = ({ onLogin }: LoginFormProps) => {
+export const LoginForm = ({ onLogin, onShowRegister }: LoginFormProps) => {
   const [adminForm, setAdminForm] = useState({ username: "", password: "" });
   const [agencyForm, setAgencyForm] = useState({ username: "", password: "" });
   const { setToken } = useContext(AuthContext);
@@ -120,9 +121,6 @@ export const LoginForm = ({ onLogin }: LoginFormProps) => {
                   <Button type="submit" className="w-full bg-blue-600 hover:bg-blue-700">
                     Login as Agency
                   </Button>
-                  <div className="text-xs text-gray-500 text-center">
-                    Demo: username: agency1, password: agency123
-                  </div>
                 </form>
               </TabsContent>
 
@@ -153,14 +151,21 @@ export const LoginForm = ({ onLogin }: LoginFormProps) => {
                   <Button type="submit" className="w-full bg-indigo-600 hover:bg-indigo-700">
                     Login as Admin
                   </Button>
-                  <div className="text-xs text-gray-500 text-center">
-                    Demo: username: admin, password: admin123
-                  </div>
                 </form>
               </TabsContent>
             </Tabs>
           </CardContent>
         </Card>
+      </div>
+      <div className="text-center mt-4">
+        <span className="text-sm text-gray-600">Don't have an account? </span>
+        <button
+          type="button"
+          className="text-blue-600 hover:underline text-sm"
+          onClick={onShowRegister}
+        >
+          Register here
+        </button>
       </div>
     </div>
   );

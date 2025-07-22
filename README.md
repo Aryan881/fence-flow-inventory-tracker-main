@@ -335,3 +335,16 @@ If you want Docker support, request Dockerfiles for both frontend and backend.
 ---
 
 For further improvements, consider adding automated tests or Docker support for easier deployment.
+
+# 🚀 One-Command Docker Start
+
+You can run the entire project (frontend + backend) with a single command using Docker Compose:
+
+```bash
+docker-compose up --build
+```
+
+- Frontend: http://localhost:8080
+- Backend API: http://localhost:3001/api
+
+---
